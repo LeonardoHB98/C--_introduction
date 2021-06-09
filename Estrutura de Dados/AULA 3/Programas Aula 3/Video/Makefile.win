@@ -1,0 +1,31 @@
+# Project: ED_Aula3
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Aula3_vetores.o "Minha\ Matriz.o"
+LINKOBJ  = Aula3_vetores.o "Minha Matriz.o"
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -L"C:/GLUT" -static-libgcc -m64
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/GLUT"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = ED_Aula3.exe
+CXXFLAGS = $(CXXINCS) -m64 -std=c99
+CFLAGS   = $(INCS) -m64 -std=c99
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Aula3_vetores.o: Aula3_vetores.cpp
+	$(CPP) -c Aula3_vetores.cpp -o Aula3_vetores.o $(CXXFLAGS)
+
+"Minha\ Matriz.o": Minha\ Matriz.cpp
+	$(CPP) -c "Minha Matriz.cpp" -o "Minha Matriz.o" $(CXXFLAGS)
